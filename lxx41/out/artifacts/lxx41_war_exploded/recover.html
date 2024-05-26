@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找回账户</title>
+    <!-- 引入css -->
+    <link rel="stylesheet" href="css/recover_style.css">
+</head>
+<body>
+<div class="bigbox">
+    <form action="/recover" onsubmit="return validateForm()" method="post" class="recover" novalidate>
+        <h1>Recover</h1>
+        <input type="text" placeholder="账号" name="username" id="username" required>
+        <input type="text" placeholder="手机号" name="phone" id="phone" required>
+        <input type="text" placeholder="修改密码" name="password" id="password" required>
+        <input type="text" placeholder="确认修改密码" name="c_password" id="c_password" required>
+        <input type="submit" class="btn" value="找回账号">
+        <div class ="recover_one-link">
+            <p style="color:white">已有账号？<a href="login.html">点击登录</a></p>
+        </div>
+        <div class ="recover_one-link">
+            <p style="color:white">没有账号？<a href="register.html">点击注册</a></p>
+        </div>
+    </form>
+</div>
+<script>
+    function validateForm()
+    {
+        var username=document.getElementById("username").value;
+        var phone=document.getElementById("phone").value;
+        var password=document.getElementById("password").value;
+        var c_password=document.getElementById("c_password").value;
+        if(username==="")
+        {
+            alert("用户名不能为空!");
+            document.getElementById("username").focus();
+            return false;
+        }
+        if(phone==="")
+        {
+            alert("手机号不能为空!");
+            document.getElementById("phone").focus();
+            return false;
+        }
+        var phone_test=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if(!phone_test.test(phone))
+        {
+            alert("手机号输入错误！")
+            document.getElementById("phone").focus();
+            return false;
+        }
+        if(password==="")
+        {
+            alert("密码不能为空")
+            document.getElementById("password").focus();
+            return false;
+        }
+        if(c_password==="")
+        {
+            alert("确认密码不能为空")
+            document.getElementById("c_password").focus();
+            return false;
+        }
+        if(password!==c_password)
+        {
+            alert("密码和确认密码不一致")
+            document.getElementById("phone").focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>

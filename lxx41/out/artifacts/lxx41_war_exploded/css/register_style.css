@@ -1,0 +1,102 @@
+*{
+    user-select: none;
+    /* 无法选中,整体感更强 */
+}
+body{
+    /* 设置背景 */
+    background-image: url(../img/bg.jpg);
+    /* 平铺 */
+    background-repeat: no-repeat;
+    /* 按照屏幕大小计算尺寸 */
+    background-size: cover;
+    /* fixed */
+    background-attachment: fixed;
+}
+.transparent-form {
+    border: 1px solid transparent;
+}
+.register{
+    /* 绝对定位 */
+    position: absolute;
+    /* 设置位置 距离顶部50% 外边框-200px 距离左边50% */
+    top: 50%;
+    margin-top: -200px;
+    left: 50%;
+    /* form表单宽度400px 这里回200px */
+    margin-left: -200px;
+    width: 400px;
+    height: 600px;
+    /* 边框锐度 */
+    border-radius: 25px;
+    background-color: #00000098;
+    /* 居中 */
+    text-align: center;
+    padding: 5px 40px;
+    /* 标准盒子 */
+    box-sizing: border-box;
+    /* 阴影 */
+    box-shadow: 5px 10px 5px #161616a8;
+}
+.register h1{
+    /* 引入字体 */
+    font-family: "微软雅黑", serif;
+    color: white;
+}
+.container {
+    width: 300px;
+    padding: 16px;
+    background-color: white;
+    margin: 100px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input{
+    /* 设置背景颜色 */
+    background-color: rgba(255, 255, 255, 0);
+    /* 设置宽度高度 */
+    width: 80%;
+    height: 48px;
+    /* 设置底部距离 */
+    margin-bottom: 10px;
+    /* 边框设置为0 然后给底部边框设置宽度和颜色 */
+    border: 0px;
+    border-bottom: 2px solid silver;
+    /* 点击白色的去除 */
+    outline: none;
+    /* 字体大小和颜色改变 */
+    font-size: 22px;
+    color: white;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.btn{
+    /* 设置宽度 设置边框锐度 */
+    /* 去除下边框的白色 */
+    border: 0px;
+    width: 40%;
+    background-image: linear-gradient(120deg,#f6d365 0% ,#fda085 100%);
+    border-radius: 25px;
+}
+.btn:hover{
+    background-image: linear-gradient(to right,#b4731d 0% ,#f16943 100%);
+}
+a {
+    color: dodgerblue;
+}
+.register_one-link a{
+    color:orangered;
+    text-decoration: none;
+    font-weight: bold;
+}
+.register_one-link a:hover
+{
+    color:darkred;
+}

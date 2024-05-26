@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简历页面</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>个人简历</h1>
+<form id="resumeForm">
+    <label for="name">姓名:</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="age">年龄:</label>
+    <input type="text" id="age" name="age"><br>
+    <label for="gender">性别:</label>
+    <input type="text" id="gender" name="gender"><br>
+    <label for="phone">电话:</label>
+    <input type="text" id="phone" name="phone"><br>
+    <label for="email">邮箱:</label>
+    <input type="text" id="email" name="email"><br>
+    <label for="address">地址:</label>
+    <input type="text" id="address" name="address"><br>
+    <label for="skills">技能:</label>
+    <textarea id="skills" name="skills"></textarea><br>
+    <label for="experience">工作经验:</label>
+    <textarea id="experience" name="experience"></textarea><br>
+    <label for="projects">项目经验:</label>
+    <textarea id="projects" name="projects"></textarea><br>
+    <button type="submit">保存</button>
+</form>
+
+<script>
+    $(document).ready(function(){
+        // 获取用户信息
+        $.ajax({
+            url: 'get_user.php',
+            method: 'GET',
+            success: function(data) {
+                var user = JSON.parse(data);
+                $('#name').val(user.name);
+                $('#age').val(user.age);
+                $('#gender').val(user.gender);
+                $('#phone').val(user.phone);
+                $('#email').val(user.email);
+                $('#address').val(user.address);
+                $('#skills').val(user.skills);
+                $('#experience').val(user.experience);
+                $('#projects').val(user.projects);
+            }
+        });
+
+        // 提交表单并更新用户信息
+        $('#resumeForm').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                url: 'update_user.php',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    alert(response);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
